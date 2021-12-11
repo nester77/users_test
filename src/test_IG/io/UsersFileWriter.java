@@ -9,29 +9,23 @@ import java.util.List;
 
 public class UsersFileWriter {
 
+    private List<Users> users;
 
-
-        private List<Users> users;
-
-        public UsersFileWriter(List<Users> users) {
-            this.users = users;
-        }
-
-        public void writeAll(String nameOfFile) {
-            try (FileWriter writer = new FileWriter(nameOfFile)) {
-                System.out.println("Результирующая таблица");
-                for (Users fullInfo : users) {
-                    writer.write(UsersUtil.formatForWriting(fullInfo));
-                    PrintTable.printRow (fullInfo);
-                }
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
+    public UsersFileWriter(List<Users> users) {
+    this.users = users;
     }
 
+    public void writeAll(String nameOfFile) {
+        try (FileWriter writer = new FileWriter(nameOfFile)) {
+            for (Users userInfo : users) {
+                writer.write(UsersUtil.formatForWriting(userInfo));
+            }
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        }
 
 }
+
+

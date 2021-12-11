@@ -22,7 +22,20 @@ public class UsersUtil {
 
         return new Users (firstName, lastName, email, roles, mobilePhones);
     }
+
+    public static String formatForWriting (Users user){
+        return user.getFirstName() + ";"
+                + user.getLastName() + ";"
+                + user.getEmail() + ";"
+                + user.getRoles()[0] + ";"
+                + user.getRoles()[1] + ";"
+                + user.getMobilePhones()[0] + ";"
+                + user.getMobilePhones()[1] + ";"
+                + user.getMobilePhones()[2] + "\n";
+    }
+
 }
+
 
 
 

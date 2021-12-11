@@ -9,6 +9,9 @@ public class Users {
     private Roles[] roles;
     private String[] mobilePhones;
 
+    public Users() {
+    }
+
     public Users(String firstName, String lastName, String email, Roles[] roles, String[] mobilePhones) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -65,6 +68,6 @@ public class Users {
                 ", email='" + email + '\'' +
                 ", roles=" + Arrays.toString(roles) +
                 ", mobilePhones=" + Arrays.toString(mobilePhones) +
-                '}';
+                '}'+ '\n';
     }
 }

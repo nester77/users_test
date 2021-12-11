@@ -1,4 +1,4 @@
 package test_IG.entity;
 
-public enum Roles {RoleFirstLevel, RoleSecondLevel , RoleThirdLevel
+public enum Roles {USER, CUSTOMER,  ADMIN, PROVIDER, SUPER_ADMIN, EMPTY, A
 }
