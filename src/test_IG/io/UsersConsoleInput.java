@@ -41,6 +41,13 @@ public class UsersConsoleInput implements UsersInput {
         return user;
     }
 
+    public static List<Users> AllUsersRead() {
+        UsersFileReader reader_users = new UsersFileReader(USERS_SOURCE_FILE);
+        List<Users> users = reader_users.readItems();
+
+        return users;
+    }
+
     public static void UserUpdate(Users userUpd, int index) {
         UsersFileReader reader_users = new UsersFileReader(USERS_SOURCE_FILE);
         List<Users> users = reader_users.readItems();
