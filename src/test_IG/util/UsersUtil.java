@@ -2,11 +2,13 @@ package test_IG.util;
 
 import test_IG.entity.Roles;
 import test_IG.entity.Users;
+import test_IG.io.UsersFileReader;
 
 import java.util.Arrays;
 import java.util.List;
 
 import static test_IG.entity.Roles.EMPTY;
+import static test_IG.io.FilePathConstants.USERS_SOURCE_FILE;
 
 public class UsersUtil {
 
@@ -39,32 +41,33 @@ public class UsersUtil {
                 + user.getMobilePhones()[2] + "\n";
     }
 
-    public void printUser (Users user) {
-        System.out.println(
-                "Имя:     " + user.getFirstName() + '\n' +
-                "Фамилия: " + user.getLastName() + '\n' +
-                "Почта:   " + user.getEmail() );
+    public static void printUser(Users user) {
+        System.out.print(
+                "Имя: " + user.getFirstName() + "   " +
+                "Фамилия: " + user.getLastName() + "   " +
+                "Email: " + user.getEmail() + "   ");
+        if (user.getRoles()[0]!=EMPTY) System.out.print("Роль : " + user.getRoles()[0]+ "   ");
+        if (user.getRoles()[1]!=EMPTY) System.out.print("Роль : " + user.getRoles()[1]+ "   ");
 
-        if (user.getRoles()[0]!=EMPTY) System.out.println("Роль :   " + user.getRoles()[0]);
-        if (user.getRoles()[1]!=EMPTY) System.out.println("Роль :   " + user.getRoles()[1]);
-
-        if (user.getMobilePhones()[0]!="") System.out.println("Телефон: " + user.getMobilePhones()[0]);
-        if (user.getMobilePhones()[1]!="") System.out.println("Телефон: " + user.getMobilePhones()[1]);
-        if (user.getMobilePhones()[2]!="") System.out.println("Телефон: " + user.getMobilePhones()[2]);
+        if (user.getMobilePhones()[0]!="0") System.out.print("Телефон: " + user.getMobilePhones()[0]+ "   ");
+        if (user.getMobilePhones()[1]!="0") System.out.print("Телефон: " + user.getMobilePhones()[1]+ "   ");
+        if (user.getMobilePhones()[2]!="0") System.out.println("Телефон: " + user.getMobilePhones()[2]);
     }
 
-    public void printAllUsers (List<Users> users) {
+    public static void printAllUsers(List<Users> users) {
         int i=1;
         for (Users user : users) {
-
             System.out.print(i+ ". ");
-            System.out.println(
-                    "Имя:     " + user.getFirstName() + "   " +
-                    "Фамилия: " + user.getLastName() + "   " +
-                    "Почта:   " + user.getEmail() );
+            printUser(user);
             i++;
         }
 
+    }
+
+    public static int getLengthList () {
+        UsersFileReader reader_users = new UsersFileReader(USERS_SOURCE_FILE);
+        List<Users> users = reader_users.readItems();
+        return users.size();
     }
 }
 

@@ -18,18 +18,26 @@ public class Main {
 
     public static void main(String[] args) {
 
-        UsersFileReader reader_users = new UsersFileReader(USERS_SOURCE_FILE);
-        List<Users> users = reader_users.readItems();
-        int i=1;
-        for (Users user : users) {
-
-            System.out.print(i+ ". ");
-            System.out.println(
-                    "Имя:     " + user.getFirstName() + "   " +
-                            "Фамилия: " + user.getLastName() + "   " +
-                            "Почта:   " + user.getEmail() );
-            i++;
-        }
+//        UsersFileReader reader_users = new UsersFileReader(USERS_SOURCE_FILE);
+//        List<Users> users = reader_users.readItems();
+//        int i=1;
+//        for (Users user : users) {
+//
+//            System.out.print(i+ ". ");
+//            System.out.print(
+//                    "Имя: " + user.getFirstName() + "   " +
+//                            "Фамилия: " + user.getLastName() + "   " +
+//                            "Почта: " + user.getEmail() + "   ");
+//            if (user.getRoles()[0]!=EMPTY) System.out.print("Роль : " + user.getRoles()[0]+ "   ");
+//            if (user.getRoles()[1]!=EMPTY) System.out.print("Роль : " + user.getRoles()[1]+ "   ");
+//
+//            if (user.getMobilePhones()[0]!="") System.out.print("Телефон: " + user.getMobilePhones()[0]+ "   ");
+//            if (user.getMobilePhones()[1]!="") System.out.print("Телефон: " + user.getMobilePhones()[1]+ "   ");
+//            if (user.getMobilePhones()[2]!="") System.out.println("Телефон: " + user.getMobilePhones()[2]);
+//
+//
+//            i++;
+//        }
 //
 //        System.out.println(users);
 
@@ -37,7 +45,18 @@ public class Main {
 //        String[] phones ={"","5451151","0"};
 //
 //        Users user = new Users("trjjh","hsddsr","jkjkghgh@hjh.de", roles, phones);
+////
+//        System.out.print(
+//                    "Имя: " + user.getFirstName() + "   " +
+//                            "Фамилия: " + user.getLastName() + "   " +
+//                            "Почта: " + user.getEmail() + "   ");
+//            if (user.getRoles()[0]!=EMPTY) System.out.print("Роль : " + user.getRoles()[0]+ "   ");
+//            if (user.getRoles()[1]!=EMPTY) System.out.print("Роль : " + user.getRoles()[1]+ "   ");
 //
+//            if (user.getMobilePhones()[0]!="0") System.out.print("Телефон: " + user.getMobilePhones()[0]+ "   ");
+//            if (user.getMobilePhones()[1]!="0") System.out.print("Телефон: " + user.getMobilePhones()[1]+ "   ");
+//            if (user.getMobilePhones()[2]!="0") System.out.println("Телефон: " + user.getMobilePhones()[2]);
+
 //        System.out.println(
 //               "Имя:     " + user.getFirstName() + '\n' +
 //               "Фамилия: " + user.getLastName() + '\n' +
@@ -65,8 +84,7 @@ public class Main {
 //        System.out.println(users);
 //
 //
-//        UsersFileWriter fullInfoFileWriter = new UsersFileWriter(users);
-//        fullInfoFileWriter.writeAll(USERS_SOURCE_FILE);
+
 //        System.out.println(users);
 
 //        UsersConsoleInput.UserDelete (3);
@@ -76,8 +94,8 @@ public class Main {
 
 
 
-//        MainMenu mainMenu = new MainMenu();
-//        mainMenu.start();
+        MainMenu mainMenu = new MainMenu();
+        mainMenu.start();
 
     }
 
