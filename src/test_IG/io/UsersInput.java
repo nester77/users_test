@@ -7,15 +7,9 @@ public interface UsersInput {
 
     public  Users UserCreate();
 
-    Users  UserCreate(Users user);
+    public  Users UserRead(int index);
 
-    public static Users UserRead() {
-        return null;
-    }
-
-
-    public  void UserUpdate(Users userUpd, int index);
-
+    public  Users UserUpdate (Users user, int menuItem);
 
     public void UserDelete(int i);
 }

@@ -19,6 +19,7 @@ public class MainMenu {
     }
 
     public void printMainMenu() {
+        System.out.println("");
         System.out.println("ПРИЛОЖЕНИЕ 'ПОЛЬЗОВАТЕЛИ'");
         System.out.println("МЕНЮ");
         System.out.println("1. Вывести всех пользователей");
@@ -31,49 +32,55 @@ public class MainMenu {
     }
 
     public void start() {
-        int key;
+        int key=0;
+        UsersConsoleInput usersConsoleInput = new UsersConsoleInput();
+        UserChoiceMenu userChoiceMenu = new UserChoiceMenu();
         do {
             printMainMenu();
-            System.out.print("Введите номер меню: ");
-
-
-
-            key = this.scanner.nextInt();
+            System.out.print("Введите номер пункта меню: ");
+            String s = scanner.next();
+            try {
+                Integer.parseInt(s);
+            } catch (NumberFormatException e){
+                System.out.println("Вы ввели неверное значение пункта меню!");
+                continue;
+            }
+            key = Integer.parseInt(s);
 
             switch (key) {
                 case 1:
-                    UsersUtil.printAllUsers(UsersConsoleInput.AllUsersRead());
+                    UsersUtil.printAllUsers(usersConsoleInput.AllUsersRead());
                     break;
                 case 2:
-                    System.out.println("ИНФОРМАЦИЯ.");
-                    UserChoiceMenu userChoiceMenu2 = new UserChoiceMenu();
-                    UsersUtil.printUser(UsersConsoleInput.UserRead(userChoiceMenu2.startUserChoice(UsersUtil.getLengthList())));
+                    System.out.println("");
+                    System.out.println("ИНФОРМАЦИЯ. ");
+                    UsersUtil.printUser(usersConsoleInput.UserRead(userChoiceMenu.startUserChoice(UsersUtil.getLengthList())));
                     break;
                 case 3:
                     UsersFileReader reader_users3 = new UsersFileReader(USERS_SOURCE_FILE);
                     List<Users> users3 = reader_users3.readItems();
-                    UsersConsoleInput usersConsoleInput3 = new UsersConsoleInput();
-                    users3.add(usersConsoleInput3.UserCreate());
+                    users3.add(usersConsoleInput.UserCreate());
                     UsersFileWriter fullInfoFileWriter3 = new UsersFileWriter(users3);
                     fullInfoFileWriter3.writeAll(USERS_SOURCE_FILE);
                     break;
                 case 4:
-                    System.out.print("ИЗМЕНЕНИЕ.");
+                    System.out.println("");
+                    System.out.print("ИЗМЕНЕНИЕ. ");
+                    UserUpdateMenu userUpdateMenu = new UserUpdateMenu();
+                    userUpdateMenu.startUserUpdate(userChoiceMenu.startUserChoice(UsersUtil.getLengthList()));
 
                     break;
                 case 5:
-                    System.out.print("УДАЛЕНИЕ.");
-
-                    UserChoiceMenu userChoiceMenu5 = new UserChoiceMenu();
-                    UsersConsoleInput usersConsoleInput5 = new UsersConsoleInput();
-                    usersConsoleInput5.UserDelete(userChoiceMenu5.startUserChoice(UsersUtil.getLengthList()));
+                    System.out.println("");
+                    System.out.print("УДАЛЕНИЕ. ");
+                    usersConsoleInput.UserDelete(userChoiceMenu.startUserChoice(UsersUtil.getLengthList()));
 
                     break;
                 case 0:
                     System.out.println("Завершение программы...");
                     break;
                 default:
-                    System.out.println("Вы ввели неверное значение меню...\n");
+                    System.out.println("Вы ввели неверное значение пункта меню!");
             }
         } while (key != 0);
     }

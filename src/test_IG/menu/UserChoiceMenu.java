@@ -13,8 +13,9 @@ public class UserChoiceMenu {
     }
 
     public  void printUserChoiceMenu() {
+
         System.out.println("ВЫБОР ПОЛЬЗОВАТЕЛЯ");
-        System.out.println("Ведите порядковый номер пользователя");
+        System.out.println("Введите порядковый номер пользователя");
 
 
     }
@@ -28,12 +29,12 @@ public class UserChoiceMenu {
                 try {
                      Integer.parseInt(s);
                 } catch (NumberFormatException e){
-                    System.out.println("Неверный ввод");
+                    System.out.println("Неверный ввод номера пользователя!\n");
                     continue;
                 }
                 key = Integer.parseInt(s);
 
-
+                if (key<1 || key>length) { System.out.println("Неверный ввод номера пользователя!\n");}
             } while (key<1 || key>length);
         return key;
     }
