@@ -49,9 +49,12 @@ public class UsersUtil {
         if (user.getRoles()[0]!=EMPTY) System.out.print("Роль : " + user.getRoles()[0]+ "   ");
         if (user.getRoles()[1]!=EMPTY) System.out.print("Роль : " + user.getRoles()[1]+ "   ");
 
-        if (user.getMobilePhones()[0]!="0") System.out.print("Телефон: " + user.getMobilePhones()[0]+ "   ");
-        if (user.getMobilePhones()[1]!="0") System.out.print("Телефон: " + user.getMobilePhones()[1]+ "   ");
-        if (user.getMobilePhones()[2]!="0") System.out.println("Телефон: " + user.getMobilePhones()[2]);
+        if (!user.getMobilePhones()[0].equals("0")) System.out.print("Телефон: " + user.getMobilePhones()[0]+ "   ");
+        else {System.out.print("Телефон: не указан   ");}
+        if (!user.getMobilePhones()[1].equals("0")) System.out.print("Телефон: " + user.getMobilePhones()[1]+ "   ");
+        else {System.out.print("Телефон: не указан   ");}
+        if (!user.getMobilePhones()[2].equals("0")) System.out.println("Телефон: " + user.getMobilePhones()[2]);
+        else {System.out.println("Телефон: не указан");}
     }
 
     public static void printAllUsers(List<Users> users) {

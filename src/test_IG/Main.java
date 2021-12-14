@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Scanner;
 
 
+import static java.lang.Integer.parseInt;
 import static test_IG.entity.Roles.*;
 import static test_IG.io.FilePathConstants.USERS_SOURCE_FILE;
 
@@ -97,6 +98,15 @@ public class Main {
         MainMenu mainMenu = new MainMenu();
         mainMenu.start();
 
+//        String mobilePhone= "fdfdfddf@21.df";
+//                mobilePhone.indexOf("@") ;
+//                mobilePhone.indexOf(".") ;
+//                mobilePhone.lastIndexOf("8");
+//
+//
+//        System.out.println(mobilePhone.indexOf(".")-mobilePhone.indexOf("@"));
+//        System.out.println(mobilePhone.indexOf("."));
+//        System.out.println( mobilePhone.length());
     }
 
 }

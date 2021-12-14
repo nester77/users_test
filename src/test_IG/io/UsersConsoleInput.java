@@ -2,6 +2,8 @@ package test_IG.io;
 
 import test_IG.entity.Roles;
 import test_IG.entity.Users;
+import test_IG.menu.RolesChoiceMenu;
+import test_IG.validators.Validators;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,24 +19,45 @@ public class UsersConsoleInput implements UsersInput {
         Roles[] roles = new Roles[2];
         String[] mobilePhones= new String[3];
 
+        System.out.println();
         System.out.println("СОЗДАНИЕ ПОЛЬЗОВАТЕЛЯ");
         System.out.print("Введите Имя: ");
         String firstName = usersConsoleInput.getValue().nextLine();
         System.out.print("Введите Фамилию: ");
         String lastName = usersConsoleInput.getValue().nextLine();
         System.out.print("Введите Email: ");
-        String email = usersConsoleInput.getValue().nextLine();
-        System.out.print("Введите Роль: ");
-        roles[0] = Roles.valueOf(usersConsoleInput.getValue().nextLine());
-        System.out.print("Введите Роль: ");
-        roles[1] = Roles.valueOf(usersConsoleInput.getValue().nextLine());
-        System.out.print("Введите Телефон: ");
-        mobilePhones[0] = usersConsoleInput.getValue().nextLine();
-        System.out.print("Введите Телефон: ");
-        mobilePhones[1] = usersConsoleInput.getValue().nextLine();
-        System.out.print("Введите Телефон: ");
-        mobilePhones[2] = usersConsoleInput.getValue().nextLine();
+        String email;
+        do {
+            email = usersConsoleInput.getValue().nextLine();
+        } while (!Validators.EmailValidator(email));
+        RolesChoiceMenu rolesChoiceMenu = new RolesChoiceMenu();
+        do {
+            roles[0] = rolesChoiceMenu.startRolesChoiceMenu();
+            roles[1] = rolesChoiceMenu.startRolesChoiceMenu();
+        } while (!Validators.RolesValidator(roles));
 
+        do {
+            for (int i=0; i<3; i++ ){
+                System.out.print("Введите Телефон: ");
+                do {
+                    mobilePhones[i] = usersConsoleInput.getValue().nextLine();
+                } while (!Validators.MobilePhoneValidator(mobilePhones[i]));
+            }
+
+
+
+
+
+
+//            System.out.print("Введите Телефон: ");
+//            mobilePhones[0] = usersConsoleInput.getValue().nextLine();
+//            System.out.print("Введите Телефон: ");
+//            mobilePhones[1] = usersConsoleInput.getValue().nextLine();
+//            System.out.print("Введите Телефон: ");
+//            mobilePhones[2] = usersConsoleInput.getValue().nextLine();
+
+
+        }while (!Validators.MobilePhonesValidator(mobilePhones));
 
         return new Users (firstName, lastName, email, roles, mobilePhones);
     }
@@ -68,22 +91,35 @@ public class UsersConsoleInput implements UsersInput {
                 user.setLastName(usersConsoleInput.getValue().nextLine());
                 break;
             case 3:
-                user.setEmail(usersConsoleInput.getValue().nextLine());
+                do {
+                    user.setEmail(usersConsoleInput.getValue().nextLine());
+                } while (!Validators.EmailValidator(user.getEmail()));
                 break;
             case 4:
-                user.getRoles()[0] = Roles.valueOf(usersConsoleInput.getValue().nextLine());
+                RolesChoiceMenu rolesChoiceMenu = new RolesChoiceMenu();
+                do {
+                    user.getRoles()[0] = rolesChoiceMenu.startRolesChoiceMenu();
+                    user.getRoles()[1] = rolesChoiceMenu.startRolesChoiceMenu();
+                } while (!Validators.RolesValidator(user.getRoles()));
                 break;
+
             case 5:
-                user.getRoles()[1] = Roles.valueOf(usersConsoleInput.getValue().nextLine());
+                do {
+                    user.getMobilePhones()[0] = usersConsoleInput.getValue().nextLine();
+                } while (!Validators.MobilePhoneValidator(user.getMobilePhones()[0]) ||
+                         !Validators.MobilePhonesValidator(user.getMobilePhones()));
                 break;
             case 6:
-                user.getMobilePhones()[0] = usersConsoleInput.getValue().nextLine();
+                do {
+                    user.getMobilePhones()[1] = usersConsoleInput.getValue().nextLine();
+                } while (!Validators.MobilePhoneValidator(user.getMobilePhones()[1]) ||
+                         !Validators.MobilePhonesValidator(user.getMobilePhones()));
                 break;
             case 7:
-                user.getMobilePhones()[1] = usersConsoleInput.getValue().nextLine();
-                break;
-            case 8:
-                user.getMobilePhones()[2] = usersConsoleInput.getValue().nextLine();
+                do {
+                    user.getMobilePhones()[2] = usersConsoleInput.getValue().nextLine();
+                } while (!Validators.MobilePhoneValidator(user.getMobilePhones()[2]) ||
+                         !Validators.MobilePhonesValidator(user.getMobilePhones()));
                 break;
         }
                 return user;

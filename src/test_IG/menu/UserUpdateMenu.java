@@ -25,11 +25,10 @@ public class UserUpdateMenu {
         System.out.println("1. Редактировать ИМЯ");
         System.out.println("2. Редактировать ФАМИЛИЮ");
         System.out.println("3. Редактировать Email");
-        System.out.println("4. Редактировать РОЛЬ №1");
-        System.out.println("5. Редактировать РОЛЬ №2");
-        System.out.println("6. Редактировать ТЕЛЕФОН №1");
-        System.out.println("7. Редактировать ТЕЛЕФОН №2");
-        System.out.println("8. Редактировать ТЕЛЕФОН №3");
+        System.out.println("4. Редактировать РОЛИ");
+        System.out.println("5. Редактировать ТЕЛЕФОН №1");
+        System.out.println("6. Редактировать ТЕЛЕФОН №2");
+        System.out.println("7. Редактировать ТЕЛЕФОН №3");
         System.out.println("0. Сохранить изменения и выйти из редактирования");
 
     }
@@ -71,22 +70,18 @@ public class UserUpdateMenu {
                     UsersUtil.printUser(usersConsoleInput.UserUpdate(user, key));
                     break;
                 case 4:
-                    System.out.print("Введите новую РОЛЬ №1 пользователя: ");
+
                     UsersUtil.printUser(usersConsoleInput.UserUpdate(user, key));
                     break;
                 case 5:
-                    System.out.print("Введите новую РОЛЬ №2 пользователя: ");
-                    UsersUtil.printUser(usersConsoleInput.UserUpdate(user, key));
-                    break;
-                case 6:
                     System.out.print("Введите новый ТЕЛЕФОН №1 пользователя: ");
                     UsersUtil.printUser(usersConsoleInput.UserUpdate(user, key));
                     break;
-                case 7:
+                case 6:
                     System.out.print("Введите новый ТЕЛЕФОН №2 пользователя: ");
                     UsersUtil.printUser(usersConsoleInput.UserUpdate(user, key));
                     break;
-                case 8:
+                case 7:
                     System.out.print("Введите новый ТЕЛЕФОН №3 пользователя: ");
                     UsersUtil.printUser(usersConsoleInput.UserUpdate(user, key));
                     break;
