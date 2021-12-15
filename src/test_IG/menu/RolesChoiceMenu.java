@@ -27,14 +27,14 @@ public class RolesChoiceMenu {
     }
 
 
-    public Roles startRolesChoiceMenu() {
+    public Roles startRolesChoiceMenu(int index) {
         int key=0;
         Roles role=EMPTY;
 
         do {
             printRolesChoiceMenu();
 
-            System.out.print("Введите номер пункта меню: ");
+            System.out.print("Введите номер пункта меню для РОЛИ №"+index+": ");
             String s = scanner.next();
 
             try {

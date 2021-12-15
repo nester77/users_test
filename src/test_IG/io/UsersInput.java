@@ -3,13 +3,16 @@ package test_IG.io;
 
 import test_IG.entity.Users;
 
+import java.util.List;
+
 public interface UsersInput {
 
-    public  Users UserCreate();
+    public Users userCreate();
 
-    public  Users UserRead(int index);
+    public Users userRead(int index);
+    public List<Users> allUsersRead();
 
-    public  Users UserUpdate (Users user, int menuItem);
+    public Users userUpdate(Users user, int menuItem);
 
-    public void UserDelete(int i);
+    public void userDelete(int i);
 }

@@ -57,33 +57,33 @@ public class UserUpdateMenu {
             switch (key) {
                 case 1:
                     System.out.print("Введите новое ИМЯ пользователя: ");
-                    UsersUtil.printUser(usersConsoleInput.UserUpdate(user, key));
+                    UsersUtil.printUser(usersConsoleInput.userUpdate(user, key));
 
                     break;
                 case 2:
                     System.out.print("Введите новую ФАМИЛИЮ пользователя: ");
-                    UsersUtil.printUser(usersConsoleInput.UserUpdate(user, key));
+                    UsersUtil.printUser(usersConsoleInput.userUpdate(user, key));
 
                     break;
                 case 3:
                     System.out.print("Введите новый Email пользователя: ");
-                    UsersUtil.printUser(usersConsoleInput.UserUpdate(user, key));
+                    UsersUtil.printUser(usersConsoleInput.userUpdate(user, key));
                     break;
                 case 4:
 
-                    UsersUtil.printUser(usersConsoleInput.UserUpdate(user, key));
+                    UsersUtil.printUser(usersConsoleInput.userUpdate(user, key));
                     break;
                 case 5:
-                    System.out.print("Введите новый ТЕЛЕФОН №1 пользователя: ");
-                    UsersUtil.printUser(usersConsoleInput.UserUpdate(user, key));
+                    System.out.print("Введите новый ТЕЛЕФОН №1 пользователя или '0' при отсутствии: ");
+                    UsersUtil.printUser(usersConsoleInput.userUpdate(user, key));
                     break;
                 case 6:
-                    System.out.print("Введите новый ТЕЛЕФОН №2 пользователя: ");
-                    UsersUtil.printUser(usersConsoleInput.UserUpdate(user, key));
+                    System.out.print("Введите новый ТЕЛЕФОН №2 пользователя или '0' при отсутствии: ");
+                    UsersUtil.printUser(usersConsoleInput.userUpdate(user, key));
                     break;
                 case 7:
-                    System.out.print("Введите новый ТЕЛЕФОН №3 пользователя: ");
-                    UsersUtil.printUser(usersConsoleInput.UserUpdate(user, key));
+                    System.out.print("Введите новый ТЕЛЕФОН №3 пользователя или '0' при отсутствии: ");
+                    UsersUtil.printUser(usersConsoleInput.userUpdate(user, key));
                     break;
                 case 0:
                     System.out.println("Сохранение именений...");

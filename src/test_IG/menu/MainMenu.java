@@ -48,33 +48,42 @@ public class MainMenu {
             key = Integer.parseInt(s);
 
             switch (key) {
-                case 1:
-                    UsersUtil.printAllUsers(usersConsoleInput.AllUsersRead());
+                case 1:if (UsersUtil.getLengthList()!=0) {
+                    UsersUtil.printAllUsers(usersConsoleInput.allUsersRead());
+                    } else {System.out.println("Сохраненных пользователей нет.");
+                    }
                     break;
                 case 2:
-                    System.out.println("");
-                    System.out.println("ИНФОРМАЦИЯ. ");
-                    UsersUtil.printUser(usersConsoleInput.UserRead(userChoiceMenu.startUserChoice(UsersUtil.getLengthList())));
+                    if (UsersUtil.getLengthList()!=0) {
+                        System.out.println("");
+                        System.out.println("ИНФОРМАЦИЯ. ");
+                        UsersUtil.printUser(usersConsoleInput.userRead(userChoiceMenu.startUserChoice(UsersUtil.getLengthList())));
+                    } else {System.out.println("Сохраненных пользователей нет.");
+                    }
                     break;
                 case 3:
                     UsersFileReader reader_users3 = new UsersFileReader(USERS_SOURCE_FILE);
                     List<Users> users3 = reader_users3.readItems();
-                    users3.add(usersConsoleInput.UserCreate());
+                    users3.add(usersConsoleInput.userCreate());
                     UsersFileWriter fullInfoFileWriter3 = new UsersFileWriter(users3);
                     fullInfoFileWriter3.writeAll(USERS_SOURCE_FILE);
                     break;
                 case 4:
+                    if (UsersUtil.getLengthList()!=0) {
                     System.out.println("");
                     System.out.print("ИЗМЕНЕНИЕ. ");
                     UserUpdateMenu userUpdateMenu = new UserUpdateMenu();
                     userUpdateMenu.startUserUpdate(userChoiceMenu.startUserChoice(UsersUtil.getLengthList()));
-
+                    } else {System.out.println("Сохраненных пользователей нет.");
+                    }
                     break;
                 case 5:
+                    if (UsersUtil.getLengthList()!=0) {
                     System.out.println("");
                     System.out.print("УДАЛЕНИЕ. ");
-                    usersConsoleInput.UserDelete(userChoiceMenu.startUserChoice(UsersUtil.getLengthList()));
-
+                    usersConsoleInput.userDelete(userChoiceMenu.startUserChoice(UsersUtil.getLengthList()));
+                    } else {System.out.println("Сохраненных пользователей нет.");
+                    }
                     break;
                 case 0:
                     System.out.println("Завершение программы...");

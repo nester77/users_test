@@ -2,13 +2,22 @@ package test_IG.validators;
 
 import test_IG.entity.Roles;
 
-
-import static java.lang.Integer.parseInt;
 import static test_IG.entity.Roles.*;
 
 public class Validators {
 
-    public static boolean RolesValidator(Roles[] roles) {
+    public static boolean nameValidator(String name) {
+        if (name.length()==0){
+            System.out.print("Имя и Фамилия не могут быть пустыми! Введите еще раз: ");
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+
+    public static boolean rolesValidator(Roles[] roles) {
 
         if (    roles[0]==roles[1]                         ||
                 roles[0]!=EMPTY && roles[1]==SUPER_ADMIN   ||
@@ -29,11 +38,12 @@ public class Validators {
     }
 
 
-    public static boolean EmailValidator(String email) {
-        if (    email.indexOf("@")<1                        ||
-                (email.indexOf(".")-email.indexOf("@"))<3   ||
-                (email.length()-email.indexOf("."))<3
-
+    public static boolean emailValidator(String email) {
+        if (    email.indexOf("@")<1                                ||
+                (email.lastIndexOf(".")-email.indexOf("@"))<3   ||
+                (email.length()-email.lastIndexOf("."))<3       ||
+                email.charAt(email.lastIndexOf(".")-1)=='.'     ||
+                email.indexOf("@")!=email.lastIndexOf("@")
         ) {
             System.out.print("Неверный формат email! Введите еще раз: ");
             return false;
@@ -43,7 +53,7 @@ public class Validators {
     }
 
 
-    public static boolean MobilePhoneValidator(String mobilePhone) {
+    public static boolean mobilePhoneValidator(String mobilePhone) {
 
         try {
             Long.parseLong(mobilePhone);
@@ -68,14 +78,14 @@ public class Validators {
     }
 
 
-    public static boolean MobilePhonesValidator(String[] mobilePhones) {
+    public static boolean mobilePhonesValidator(String[] mobilePhones) {
 
         if (    mobilePhones[0].equals("0") &&
                 mobilePhones[1].equals("0") &&
                 mobilePhones[2].equals("0")
 
         ) {
-            System.out.print("Введите хотя бы один номер телефона!");
+            System.out.print("Введите хотя бы один номер телефона: ");
             return false;
         }
 

@@ -4,7 +4,6 @@ import test_IG.entity.Roles;
 import test_IG.entity.Users;
 import test_IG.io.UsersFileReader;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static test_IG.entity.Roles.EMPTY;
@@ -46,15 +45,17 @@ public class UsersUtil {
                 "Имя: " + user.getFirstName() + "   " +
                 "Фамилия: " + user.getLastName() + "   " +
                 "Email: " + user.getEmail() + "   ");
-        if (user.getRoles()[0]!=EMPTY) System.out.print("Роль : " + user.getRoles()[0]+ "   ");
-        if (user.getRoles()[1]!=EMPTY) System.out.print("Роль : " + user.getRoles()[1]+ "   ");
+        if (user.getRoles()[0]!=EMPTY) System.out.print("Роль №1: " + user.getRoles()[0]+ "   ");
+        else {System.out.print("Роль №1: не указана    ");}
+        if (user.getRoles()[1]!=EMPTY) System.out.print("Роль №2: " + user.getRoles()[1]+ "   ");
+        else {System.out.print("Роль №2: не указана    ");}
 
-        if (!user.getMobilePhones()[0].equals("0")) System.out.print("Телефон: " + user.getMobilePhones()[0]+ "   ");
-        else {System.out.print("Телефон: не указан   ");}
-        if (!user.getMobilePhones()[1].equals("0")) System.out.print("Телефон: " + user.getMobilePhones()[1]+ "   ");
-        else {System.out.print("Телефон: не указан   ");}
-        if (!user.getMobilePhones()[2].equals("0")) System.out.println("Телефон: " + user.getMobilePhones()[2]);
-        else {System.out.println("Телефон: не указан");}
+        if (!user.getMobilePhones()[0].equals("0")) System.out.print("Телефон №1: " + user.getMobilePhones()[0]+ "   ");
+        else {System.out.print("Телефон №1: не указан   ");}
+        if (!user.getMobilePhones()[1].equals("0")) System.out.print("Телефон №2: " + user.getMobilePhones()[1]+ "   ");
+        else {System.out.print("Телефон №2: не указан   ");}
+        if (!user.getMobilePhones()[2].equals("0")) System.out.println("Телефон №3: " + user.getMobilePhones()[2]);
+        else {System.out.println("Телефон №3: не указан");}
     }
 
     public static void printAllUsers(List<Users> users) {
